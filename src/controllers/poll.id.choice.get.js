@@ -1,5 +1,7 @@
-import { db } from "../app.js";
+import { db } from "../app.js"
 
 export async function pollIdChoiceGet(req, res){
     
+    
+
 }

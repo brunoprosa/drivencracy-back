@@ -17,9 +17,6 @@ export async function pollPost(req, res){
 
     try{
 
-        const exist = await db.collection('polls').find({ title }).toArray()
-        if(exist.length === 1) return res.status(409).send('this title alredy exist')
-
         const poll = { title, expireAt }
         await db.collection('polls').insertOne( poll )
         res.status(201).send( poll )
