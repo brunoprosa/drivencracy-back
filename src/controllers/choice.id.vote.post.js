@@ -1,5 +1,6 @@
 import { db } from "../app.js"
 import dayjs from "dayjs"
+import { MongoClient, ObjectId } from "mongodb"
 
 export async function choiceIdVotePost(req, res){
     
@@ -7,7 +8,7 @@ export async function choiceIdVotePost(req, res){
 
     try{
 
-        const choice = await db.collection('choices').find({_Id: new ObjectId( choiceId )}).toArray()
+        const choice = await db.collection('choices').find({_id: new ObjectId( choiceId )}).toArray()
         if(choice.length === 0) return res.status(404).send('choice not found')
 
         const poll = await db.collection('polls').find({_id: new ObjectId( choice[0].pollId )}).toArray()
@@ -15,7 +16,7 @@ export async function choiceIdVotePost(req, res){
 
         if( dayjs().isAfter(dayjs(expireAt))) return res.status(403).send('this poll alredy expire')
         
-        const cretedAt = day.js().format('YYYY-MM-DD HH:mm')
+        const cretedAt = dayjs().format('YYYY-MM-DD HH:mm')
         await db.collection('votes').insertOne({
             cretedAt,
             choiceId: new ObjectId( choiceId )

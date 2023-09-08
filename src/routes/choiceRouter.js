@@ -1,6 +1,6 @@
 import {Router} from 'express'
-import { choiceIdVotePost } from '../controllers/choice.id.vote.post'
-import { choicePost } from '../controllers/choice.post'
+import { choiceIdVotePost } from '../controllers/choice.id.vote.post.js'
+import { choicePost } from '../controllers/choice.post.js'
 
 const choiceRouter = Router()
 choiceRouter.post('/choice/:id/vote', choiceIdVotePost)

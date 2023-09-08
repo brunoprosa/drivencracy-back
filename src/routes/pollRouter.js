@@ -1,8 +1,8 @@
 import {Router} from 'express'
-import { pollGet } from '../controllers/poll.get'
-import { pollIdChoiceGet } from '../controllers/poll.id.choice.get'
-import { pollIdResultGet } from '../controllers/poll.id.result.get'
-import { pollPost } from '../controllers/poll.post'
+import { pollGet } from '../controllers/poll.get.js'
+import { pollIdChoiceGet } from '../controllers/poll.id.choice.get.js'
+import { pollIdResultGet } from '../controllers/poll.id.result.get.js'
+import { pollPost } from '../controllers/poll.post.js'
 
 const pollRouter = Router()
 pollRouter.get('/poll', pollGet)

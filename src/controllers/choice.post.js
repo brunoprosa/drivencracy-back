@@ -1,11 +1,13 @@
 import { db } from "../app.js"
 import dayjs from "dayjs"
+import { MongoClient, ObjectId } from "mongodb"
+import { choiceSchema } from "../schemas/choice.schema.js";
 
 export async function choicePost(req, res){
     
     const { title, pollId } = req.body
 
-    const validation = pollSchema.validate(req.body, { abortEarly: false })
+    const validation = choiceSchema.validate(req.body, { abortEarly: false })
     if (validation.error) { 
         const errors = validation.error.details.map((detail) => detail.message);
         return res.status(422).send(errors);
