@@ -18,5 +18,5 @@ mongoClient.connect()
 
 app.use(router)
 
-const PORT = 5000
-app.listen(PORT, () => console.log(`Rodando na porta ${PORT}`))
+port = process.env.PORT || 5000
+app.listen(port, () => console.log(`Rodando na porta ${port}`))
